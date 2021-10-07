@@ -1,0 +1,7 @@
+.light-mode {
+	@apply border-secondary-500 hover:bg-secondary-500;
+}
+
+.dark-mode {
+	@apply border-primary-500 hover:bg-primary-500;
+}
