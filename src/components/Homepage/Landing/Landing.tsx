@@ -8,7 +8,7 @@ const Landing = () => {
 	return (
 		<div className="flex flex-col h-screen">
 			<Navbar />
-			<div className="relative flex flex-col justify-center flex-grow px-4 overflow-x-hidden lg:px-32">
+			<div className="relative flex flex-col justify-center flex-grow px-4 overflow-x-hidden xl:px-32">
 				<div>
 					<div className="mb-2 text-5xl font-bold md:text-6xl text-accent">
 						Create

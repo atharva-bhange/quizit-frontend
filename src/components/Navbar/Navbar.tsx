@@ -5,7 +5,7 @@ import Navlist from "./Navlist";
 
 const Navbar = () => {
 	return (
-		<div className="w-full flex justify-between px-4 lg:px-32 py-2 ">
+		<div className="flex justify-between w-full px-4 py-2 xl:px-32 ">
 			<div>
 				<LogoDark className="dark:hidden" />
 				<LogoLight className="hidden dark:block" />
