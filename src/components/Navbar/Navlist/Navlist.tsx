@@ -5,10 +5,12 @@ import paths from "../paths";
 import { DarkModeButton, PrimaryButton } from "components/Buttons";
 import "./Navlist.css";
 import NavModal from "./NavModal";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Navlist = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
+
+	const navigation = useHistory();
 
 	return (
 		<div className="flex items-center">
@@ -18,7 +20,10 @@ const Navlist = () => {
 				</Link>
 			))}
 			<span className="hidden md:block">
-				<PrimaryButton value="Signup" />
+				<PrimaryButton
+					value="Login"
+					onClick={() => navigation.push("/login")}
+				/>
 			</span>
 			<DarkModeButton />
 			<FaBars

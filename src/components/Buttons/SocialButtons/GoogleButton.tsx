@@ -3,11 +3,11 @@ import { Button } from "components/Buttons";
 
 type Props = React.ComponentPropsWithoutRef<typeof Button>;
 
-const PrimaryButton = React.forwardRef<HTMLButtonElement, Props>(
+const GoogleButton = React.forwardRef<HTMLButtonElement, Props>(
 	(props, ref) => {
 		return (
 			<Button
-				className="bg-secondary-500 hover:bg-secondary-400"
+				className="bg-google-500 hover:bg-google-400"
 				ref={ref}
 				{...props}
 			/>
@@ -15,4 +15,4 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, Props>(
 	}
 );
 
-export default PrimaryButton;
+export default GoogleButton;

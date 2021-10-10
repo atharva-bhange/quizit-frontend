@@ -2,11 +2,13 @@ import { PrimaryButton } from "components/Buttons";
 import Modal from "components/Modal";
 import paths from "components/Navbar/paths";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 type Props = React.ComponentPropsWithoutRef<typeof Modal>;
 
 const NavModal: React.FC<Props> = (props) => {
+	const navigation = useHistory();
+
 	return (
 		<Modal {...props}>
 			<div className="flex flex-col items-center w-full h-full p-4 rounded-lg bg-primary-500">
@@ -20,7 +22,10 @@ const NavModal: React.FC<Props> = (props) => {
 					</Link>
 				))}
 				<div className="m-2">
-					<PrimaryButton value="SignUp" />
+					<PrimaryButton
+						value="Login"
+						onClick={() => navigation.push("/login")}
+					/>
 				</div>
 			</div>
 		</Modal>

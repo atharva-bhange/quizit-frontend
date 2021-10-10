@@ -1,5 +1,6 @@
 import React from "react";
-import Homepage from "pages/Homepage";
+
+import { Homepage, Login } from "pages";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const Navigation = () => {
@@ -8,6 +9,9 @@ const Navigation = () => {
 			<Switch>
 				<Route exact path="/">
 					<Homepage />
+				</Route>
+				<Route exact path="/login">
+					<Login />
 				</Route>
 			</Switch>
 		</BrowserRouter>
