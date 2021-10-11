@@ -3,6 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Navbar from "components/Navbar";
 import { ReactComponent as LandingImage } from "assets/images/landing.svg";
 import React from "react";
+import SwapText from "../SwapText";
 
 const Landing = () => {
 	return (
@@ -11,7 +12,7 @@ const Landing = () => {
 			<div className="relative flex flex-col justify-center flex-grow px-4 overflow-x-hidden xl:px-32">
 				<div>
 					<div className="mb-2 text-5xl font-bold md:text-6xl text-accent">
-						Create
+						<SwapText />
 					</div>
 					<div
 						style={{ width: "25ch" }}
