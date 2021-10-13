@@ -9,8 +9,10 @@ const TextInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 	const { label, right, ...rest } = props;
 
 	return (
-		<div className="relative flex flex-col w-full">
-			<span className="mb-1 ml-1 font-light text-secondary-500">{label}</span>
+		<div className="relative flex flex-col w-full group">
+			<span className="mb-1 ml-1 font-light text-opacity-50 text-secondary-500 group-focus-within:text-opacity-100 ">
+				{label}
+			</span>
 			<input
 				{...rest}
 				ref={ref}

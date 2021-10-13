@@ -4,8 +4,11 @@ import Navbar from "components/Navbar";
 import { ReactComponent as LandingImage } from "assets/images/landing.svg";
 import React from "react";
 import SwapText from "../SwapText";
+import { useHistory } from "react-router";
 
 const Landing = () => {
+	const navigation = useHistory();
+
 	return (
 		<div className="flex flex-col h-screen">
 			<Navbar />
@@ -24,6 +27,7 @@ const Landing = () => {
 					<PrimaryButton
 						value="Get Started"
 						right={<FaArrowRight size={26} className="ml-2" />}
+						onClick={() => navigation.push("/signup")}
 					/>
 				</div>
 				<div style={{ left: "48%" }} className="absolute">

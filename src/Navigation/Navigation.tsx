@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Homepage, Login } from "pages";
+import { Homepage, Login, Signup } from "pages";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const Navigation = () => {
@@ -12,6 +12,9 @@ const Navigation = () => {
 				</Route>
 				<Route exact path="/login">
 					<Login />
+				</Route>
+				<Route exact path="/signup">
+					<Signup />
 				</Route>
 			</Switch>
 		</BrowserRouter>
