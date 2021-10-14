@@ -24,7 +24,7 @@ const Login: React.FC = () => {
 					onSubmit={() => {}}
 					validationSchema={loginValidation}
 				>
-					<Form className="flex flex-col items-center w-4/5 p-1 px-4 bg-white rounded-lg dark:bg-primary-500 md:w-1/2 2xl:w-2/5">
+					<Form className="flex flex-col items-center w-4/5 p-2 px-4 bg-white rounded-lg dark:bg-primary-500 md:w-1/2 2xl:w-2/5">
 						<span className="text-5xl text-secondary-500">Login</span>
 						<div className="w-full mb-2">
 							<TextInput name="email" label="Email" />

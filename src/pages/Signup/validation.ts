@@ -7,12 +7,12 @@ const signupValidation = Yup.object({
 	password: Yup.string()
 		.min(8, "Password should be more than 8 characters long.")
 		.required("Password is required."),
-	confirmPassword: Yup.string()
+	confirm_password: Yup.string()
 		.min(8, "Password should be more than 8 characters long.")
 		.required("Password is required.")
 		.oneOf([Yup.ref("password")], "Passwords do not match"),
-	firstName: Yup.string().required("First Name is required."),
-	lastName: Yup.string().required("Last Name is required."),
+	first_name: Yup.string().required("First Name is required."),
+	last_name: Yup.string().required("Last Name is required."),
 });
 
 export default signupValidation;
