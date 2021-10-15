@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactComponent as LogoDark } from "assets/images/logo-dark.svg";
 import { ReactComponent as LogoLight } from "assets/images/logo-light.svg";
 import Footer from "components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { TextInput } from "components/Inputs";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { PrimaryButton } from "components/Buttons";
@@ -10,8 +10,23 @@ import { FacebookButton, GoogleButton } from "components/Buttons/SocialButtons";
 import { Formik, Form } from "formik";
 import loginValidation from "./validation";
 import PasswordInput from "components/Inputs/PasswordInput";
+import { UserContext } from "Navigation/Navigation";
+import { useMutation } from "react-query";
+import api from "api";
+import FormError from "components/Inputs/FormError";
 
 const Login: React.FC = () => {
+	const user = useContext(UserContext);
+
+	const history = useHistory();
+
+	const login = useMutation((data: any) => api.post("/user/login", data), {
+		onSuccess: (res) => {
+			user.setUser({ ...(res.data as any).data.user });
+			history.push("/dashboard");
+		},
+	});
+
 	return (
 		<div className="flex flex-col h-screen bg-primary-500 dark:bg-deep">
 			<Link to="/" className="flex items-center justify-center pt-2 width-full">
@@ -20,12 +35,21 @@ const Login: React.FC = () => {
 			</Link>
 			<div className="flex items-center justify-center flex-grow my-4">
 				<Formik
-					initialValues={{ email: "", password: "" }}
-					onSubmit={() => {}}
+					initialValues={{ email: "", password: "", form: "" }}
+					onSubmit={(formData, { setFieldError }) =>
+						login.mutate(formData, {
+							onError: (err) => {
+								setFieldError("form", (err as any).response.data.message);
+							},
+						})
+					}
 					validationSchema={loginValidation}
 				>
 					<Form className="flex flex-col items-center w-4/5 p-2 px-4 bg-white rounded-lg dark:bg-primary-500 md:w-1/2 2xl:w-2/5">
 						<span className="text-5xl text-secondary-500">Login</span>
+						<div className="w-full m-1">
+							<FormError name="form" />
+						</div>
 						<div className="w-full mb-2">
 							<TextInput name="email" label="Email" />
 						</div>
@@ -41,7 +65,12 @@ const Login: React.FC = () => {
 							</Link>
 						</div>
 						<div className="my-1 ">
-							<PrimaryButton value="Login" />
+							<PrimaryButton
+								value="Login"
+								type="submit"
+								disabled={login.isLoading}
+								loading={login.isLoading}
+							/>
 						</div>
 						<span className="pb-1 my-2 text-secondary-500 ">
 							Need a Account?{" "}
