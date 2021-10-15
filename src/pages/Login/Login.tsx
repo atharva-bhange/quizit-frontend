@@ -51,10 +51,18 @@ const Login: React.FC = () => {
 							<FormError name="form" />
 						</div>
 						<div className="w-full mb-2">
-							<TextInput name="email" label="Email" />
+							<TextInput
+								name="email"
+								label="Email"
+								disabled={login.isLoading}
+							/>
 						</div>
 						<div className="w-full mb-2">
-							<PasswordInput name="password" label="Password" />
+							<PasswordInput
+								name="password"
+								label="Password"
+								disabled={login.isLoading}
+							/>
 						</div>
 						<div className="w-full">
 							<Link
@@ -84,6 +92,8 @@ const Login: React.FC = () => {
 									value="Login with Google"
 									left={<FaGoogle size={30} className="mr-2" />}
 									full
+									type="button"
+									href={`${process.env.REACT_APP_BACKEND_URL}/v1/auth/google`}
 								/>
 							</div>
 							<div>
@@ -91,6 +101,8 @@ const Login: React.FC = () => {
 									value="Login with Facebook"
 									left={<FaFacebook size={30} className="mr-2" />}
 									full
+									type="button"
+									href={`${process.env.REACT_APP_BACKEND_URL}/v1/auth/facebook`}
 								/>
 							</div>
 						</div>

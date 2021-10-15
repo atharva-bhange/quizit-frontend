@@ -62,20 +62,40 @@ const Signup = () => {
 						</div>
 						<div className="flex flex-col w-full md:flex-row ">
 							<div className="w-full md:mr-2">
-								<TextInput name="first_name" label="First Name" />
+								<TextInput
+									name="first_name"
+									label="First Name"
+									disabled={register.isLoading}
+								/>
 							</div>
 							<div className="w-full">
-								<TextInput name="last_name" label="Last Name" />
+								<TextInput
+									name="last_name"
+									label="Last Name"
+									disabled={register.isLoading}
+								/>
 							</div>
 						</div>
 						<div className="w-full mb-2">
-							<TextInput label="Email" name="email" />
+							<TextInput
+								label="Email"
+								name="email"
+								disabled={register.isLoading}
+							/>
 						</div>
 						<div className="w-full mb-2">
-							<PasswordInput name="password" label="Password" />
+							<PasswordInput
+								name="password"
+								label="Password"
+								disabled={register.isLoading}
+							/>
 						</div>
 						<div className="w-full mb-2">
-							<PasswordInput name="confirm_password" label="Confirm Password" />
+							<PasswordInput
+								name="confirm_password"
+								label="Confirm Password"
+								disabled={register.isLoading}
+							/>
 						</div>
 						<div className="my-1 ">
 							<PrimaryButton
@@ -98,6 +118,7 @@ const Signup = () => {
 									value="Continue with Google"
 									left={<FaGoogle size={30} className="mr-2" />}
 									full
+									href={`${process.env.REACT_APP_BACKEND_URL}/v1/auth/google`}
 								/>
 							</div>
 							<div>
@@ -106,6 +127,7 @@ const Signup = () => {
 									value="Continue with Facebook"
 									left={<FaFacebook size={30} className="mr-2" />}
 									full
+									href={`${process.env.REACT_APP_BACKEND_URL}/v1/auth/facebook`}
 								/>
 							</div>
 						</div>
