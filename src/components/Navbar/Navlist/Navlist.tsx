@@ -1,24 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaBars } from "react-icons/fa";
 
 import paths from "../paths";
 import { DarkModeButton, PrimaryButton } from "components/Buttons";
 import "./Navlist.css";
 import NavModal from "./NavModal";
-import { Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import { UserContext } from "Navigation/Navigation";
 
 const Navlist = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	const navigation = useHistory();
+	const user = useContext(UserContext);
 
 	return (
 		<div className="flex items-center">
-			{paths.map(({ path, title }, index) => (
-				<Link className="nav-link" to={path} key={index}>
-					{title}
-				</Link>
-			))}
+			{paths.map(({ path, title, displayMode }, index) => {
+				if (user.user && displayMode === "OPEN") return <></>;
+				if (!user.user && displayMode === "PROTECTED") return <></>;
+				return (
+					<NavLink
+						className="nav-link"
+						activeClassName="nav-active"
+						exact
+						to={path}
+						key={index}
+					>
+						{title}
+					</NavLink>
+				);
+			})}
 			<span className="hidden md:block">
 				<PrimaryButton
 					value="Login"

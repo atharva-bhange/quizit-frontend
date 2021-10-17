@@ -5,3 +5,7 @@
 .nav-bars {
 	@apply text-secondary-500 hover:text-secondary-400 cursor-pointer md:hidden mx-6 dark:text-primary-500 dark:hover:text-primary-400;
 }
+
+.nav-active {
+	@apply underline;
+}
