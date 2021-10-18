@@ -21,6 +21,16 @@ module.exports = {
 					400: "#5B7DC2",
 				},
 			},
+			keyframes: {
+				"scale-reveal": {
+					"0%": { transform: "scale(0)", transformOrigin: "center top" },
+
+					"100%": { transform: "scale(1)" },
+				},
+			},
+			animation: {
+				"scale-reveal": "scale-reveal 0.2s ease-in-out",
+			},
 		},
 	},
 	variants: {
