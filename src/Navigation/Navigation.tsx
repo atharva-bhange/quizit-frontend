@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Dashboard, Homepage, Login, Signup } from "pages";
+import { Dashboard, Homepage, Login, Mytests, Signup } from "pages";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Loader from "components/Loader";
@@ -71,6 +71,7 @@ const Navigation = () => {
 						unauthenticated
 					/>
 					<ProtectedRoute exact path="/dashboard" component={Dashboard} />
+					<ProtectedRoute exact path="/mytests" component={Mytests} />
 				</Switch>
 			</BrowserRouter>
 		</UserContext.Provider>

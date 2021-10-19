@@ -49,7 +49,10 @@ const Menu = React.forwardRef<typeof HTMLDivElement, Props>((props, ref) => {
 	if (!open || !anchorElement) return <></>;
 
 	return (
-		<div className={"fixed top-0 bottom-0 left-0 right-0"} onClick={onClose}>
+		<div
+			className="fixed top-0 bottom-0 left-0 right-0 z-50 drop-shadow-2xl"
+			onClick={onClose}
+		>
 			<div
 				style={styleObject}
 				className="absolute z-40 flex flex-col py-2 rounded-lg bg-secondary-500 animate-scale-reveal dark:bg-primary-500"

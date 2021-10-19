@@ -1,15 +1,26 @@
+import classNames from "classnames";
 import React from "react";
 
-const MenuItem: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
+type Props = React.ComponentPropsWithoutRef<"div"> & {
+	left?: React.ReactNode;
+	right?: React.ReactNode;
+};
+
+const MenuItem: React.FC<Props> = ({
 	children,
+	className,
+	left,
+	right,
 	...rest
 }) => {
 	return (
 		<div
 			{...rest}
-			className="px-3 text-lg cursor-pointer text-primary-500 dark:text-secondary-500 dark:hover:bg-primary-400 hover:bg-secondary-400"
+			className="flex px-3 py-1 text-lg cursor-pointer text-primary-500 dark:text-secondary-500 dark:hover:bg-primary-400 hover:bg-secondary-400"
 		>
-			{children}
+			{left}
+			<div className={classNames(className, "flex-grow")}>{children}</div>
+			{right}
 		</div>
 	);
 };
